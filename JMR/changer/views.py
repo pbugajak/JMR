@@ -23,6 +23,16 @@ def post_new(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
+            url_address = str(post.url_address.lower())
+            try:
+                final_url = url_address.replace('http://', '')
+            finally:
+                pass
+            try:
+                final_url = url_address.replace("https://", "")
+            finally:
+                pass
+            post.url_address = final_url
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
