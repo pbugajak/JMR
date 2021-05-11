@@ -1,0 +1,7 @@
+{% extends 'changer/base.html' %}
+
+{% block content %}
+            <a>Podany adres url: {{ post.url_address }}</a>
+            <p>A tutaj adres skrócony</p>
+            <a href="//{{ post.url_address }}">{{ post.url_address }}/{{ post.url_address_second}}</a>
+{% endblock %}
